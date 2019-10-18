@@ -1,0 +1,73 @@
+[
+  {
+    "id": 7,
+    "children": [],
+    "parentId": 2,
+    "hierachy": 2,
+    "name": "invoke",
+    "text": "接口调用配置",
+    "path": "/invoke",
+    "pagePath": "invoke",
+    "pageClass": "InvkeGrid",
+    "menuOrder": 4
+  },
+  {
+    "id": 75,
+    "children": [],
+    "parentId": 2,
+    "name": "org",
+    "text": "机构",
+    "path": "/commonEntity/1031",
+    "pagePath": "components",
+    "pageClass": "CommonLayOut",
+    "menuOrder": 5
+  },
+  {
+    "id": 3,
+    "children": [],
+    "parentId": 2,
+    "hierachy": 2,
+    "name": "entity",
+    "text": "实体配置",
+    "path": "/entity",
+    "pagePath": "entity",
+    "pageClass": "EntityTable",
+    "menuOrder": 5
+  },
+  {
+    "id": 5,
+    "children": [],
+    "parentId": 2,
+    "hierachy": 2,
+    "name": "user",
+    "text": "用户管理",
+    "path": "/commonEntity/1000",
+    "pagePath": "components",
+    "pageClass": "CommonLayOut",
+    "menuOrder": 2
+  },
+  {
+    "id": 6,
+    "children": [],
+    "parentId": 2,
+    "hierachy": 2,
+    "name": "role",
+    "text": "角色管理",
+    "path": "/commonEntity/1001",
+    "pagePath": "components",
+    "pageClass": "CommonLayOut",
+    "menuOrder": 3
+  },
+  {
+    "id": 4,
+    "children": [],
+    "parentId": 2,
+    "hierachy": 2,
+    "name": "menu",
+    "text": "菜单管理",
+    "path": "/commonEntity/1002",
+    "pagePath": "components",
+    "pageClass": "CommonLayOut",
+    "menuOrder": 1
+  }
+]

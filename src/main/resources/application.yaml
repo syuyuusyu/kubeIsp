@@ -1,0 +1,99 @@
+spring:
+  application:
+    name: kubeIsp
+  datasource:
+    #数据库初始化
+    # schema: classpath:schema/inital.sql
+    type: com.alibaba.druid.pool.DruidDataSource
+    driverClassName: com.mysql.cj.jdbc.Driver
+
+    url: jdbc:mysql://127.0.0.1:3306/kubernetes?characterEncoding=UTF-8&zeroDateTimeBehavior=convertToNull&useSSL=false
+    username: root
+    password: 1234
+    #初始化连接数量，最大最小连接数
+    initial-size: 10
+    maxActive: 20
+    minIdle: 5
+    #获取连接等待超时的时间
+    maxWait: 600000
+    #超过时间限制是否回收
+    removeAbandoned: true
+    #超过时间限制多长
+    removeAbandonedTimeout: 180
+    #配置间隔多久才进行一次检测，检测需要关闭的空闲连接，单位是毫秒
+    timeBetweenEvictionRunsMillis: 600000
+    #配置一个连接在池中最小生存的时间，单位是毫秒
+    minEvictableIdleTimeMillis: 300000
+    #用来检测连接是否有效的sql，要求是一个查询语句
+    validationQuery: SELECT 'x'
+    #申请连接的时候检测
+    testWhileIdle: true
+    #申请连接时执行validationQuery检测连接是否有效，配置为true会降低性能
+    testOnBorrow: false
+    #归还连接时执行validationQuery检测连接是否有效，配置为true会降低性能
+    testOnReturn: false
+    #打开PSCache，并且指定每个连接上PSCache的大小
+    poolPreparedStatements: true
+    maxPoolPreparedStatementPerConnectionSize: 50
+    #属性类型是字符串，通过别名的方式配置扩展插件，常用的插件有：
+    #监控统计用的filter:stat 日志用的filter:log4j 防御SQL注入的filter:wall
+    filters: stat
+
+  jpa:
+    database: MYSQL
+    # Show or not log for each sql query
+    show-sql: true
+    #generate-ddl: true
+    # Hibernate ddl auto (create, create-drop, update)
+    hibernate:
+
+      #ddl-auto: update
+      #spring.jpa.database-platform=org.hibernate.dialect.MySQL5Dialect
+      #spring.jpa.database=org.hibernate.dialect.MySQL5InnoDBDialect
+      dialect: org.hibernate.dialect.MySQL5Dialect
+      #naming:
+        #physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+
+
+
+
+  # Redis数据库索引（默认为0
+  redis:
+    database: 0
+    # Redis服务器地址
+    host: 127.0.0.1
+    # Redis服务器连接端口
+    port: 6379
+    # Redis服务器连接密码（默认为空）
+    password:
+    timeout: 200
+
+  jackson:
+    default-property-inclusion: NON_NULL
+
+
+
+logging:
+  level:
+    ind.syu: debug
+    org:
+      hibernate: info
+      springframework: info
+
+
+server:
+  port: 7002
+
+
+kube-isp:
+  kubeConfigPath: /Users/syu/.kube/config
+  tokenExpireMin: 300
+  jwtkey: 1KP0SsvENi7Uz1oQc07aXTL7kpQG5jBNIybqr60AlD4
+  envTest: ${npm_config_proxy}
+  allowOrigin: "*"
+  allowMethods: GET,PATCH,PUT,POST,DELETE,OPTIONS
+  allowHeads: access-token,DNT,X-CustomHeader,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Content-Range,Range,Referer,Sec-Fetch-Mode
+  ignorePath:
+    - /sys/author/login
+    - ^/activiti
+
